@@ -30,9 +30,9 @@ return new Promise((resolve, reject) => {
     })
     //Indicate if done and print message
     .on('end', () => {
-        console.log(habitablePlanets.map((planet) => {
-            return planet['kepler_name'];
-        }))
+        // console.log(habitablePlanets.map((planet) => {
+        //     return planet['kepler_name'];
+        // }))
         console.log(`${habitablePlanets.length} habitable planets found`);
         console.log('done');
         resolve();
