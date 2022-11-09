@@ -11,19 +11,12 @@ const launch= {
     upcoming: true,
     success: true,
 };
-// const launch2 = {
-//     flightNumber: 101,
-//     mission : 'Kepler Exploration Z',
-//     rocket: 'Explorer ISI',
-//     launchDate: 'January 17, 2023',
-//     target: 'Kepler-229 b',
-//     customer: ['SpaceX', 'NASA'],
-//     upcoming: true,
-//     success: true,
-// };
 
 launches.set(launch.flightNumber, launch);
-// launches.set(launch2.flightNumber, launch2);
+
+function exitsLaunchWithId(launchId) {
+    return launches.has(launchId);
+}
 
 function getAllLaunches() {
     return Array.from(launches.values())
@@ -41,7 +34,17 @@ function addNewLaunch(launch){
     }))
 }
 
+function abortLaunchById(launchId){
+    const aborted = launches.get(launchId);
+    aborted.upcoming = false;
+    aborted.success = false;
+    return aborted;
+}
+
+
 module.exports = {
+    exitsLaunchWithId,
     getAllLaunches,
     addNewLaunch,
+    abortLaunchById
 }
