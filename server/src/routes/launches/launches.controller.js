@@ -10,7 +10,7 @@ function httpAddNewLaunches(req, res){
     if (!launch.mission || !launch.rocket || !launch.launchDate || !launch.target){
 
         return res.status(400).json({
-            eror: 'Missing required launch property',
+            error: 'Missing required launch property',
         });
     }
 
